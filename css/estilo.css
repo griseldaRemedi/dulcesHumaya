@@ -1,0 +1,43 @@
+.fila{
+    margin: 5px;
+}
+.contenedor{
+    max-width: 300px;
+    margin: 10px;
+
+    border-radius: 10px;
+    border-style: solid;
+    border-width: thin;
+    border-color: rgb(48, 66, 66);
+    
+    box-shadow: 5px 15px 15px grey;
+   
+}
+.teclas{
+    margin: 10px;
+}
+#marca{
+    text-align: center;
+ /*    display:flexbox;
+    justify-content: center;
+    align-items: center; */
+}
+div img{
+    text-align: center;
+}
+#resultado{
+    background-color: rgb(217, 255, 0);
+    border-radius: 10px;
+    margin: 10px 5px;
+    min-height: 50px;
+    max-width: 200px;
+}
+
+button:hover{
+    background-color: aqua;
+
+}
+img{
+    display: block;
+    max-width: 100px;
+}
