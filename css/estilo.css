@@ -2,7 +2,7 @@
     margin: 5px;
 }
 .contenedor{
-    max-width: 300px;
+    max-width: 600px;
     margin: 10px;
 
     border-radius: 10px;
@@ -13,14 +13,30 @@
     box-shadow: 5px 15px 15px grey;
    
 }
+button{
+    min-width: 50px;
+}
 .teclas{
     margin: 10px;
+    display: inline-block;
+}
+.todas-teclas{
+    display: flex;
+}
+#titulos{
+    display: flex;
 }
 #marca{
     text-align: center;
+    
  /*    display:flexbox;
     justify-content: center;
     align-items: center; */
+}
+#mensaje{
+    max-width: 40%;
+    text-align: center;
+    margin: 20px
 }
 div img{
     text-align: center;
@@ -28,9 +44,9 @@ div img{
 #resultado{
     background-color: rgb(217, 255, 0);
     border-radius: 10px;
-    margin: 10px 5px;
+    margin: 10px 20px;
     min-height: 50px;
-    max-width: 200px;
+    max-width: 90%;
 }
 
 button:hover{

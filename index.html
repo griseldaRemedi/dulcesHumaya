@@ -11,33 +11,96 @@
 </head>
 <body>
     <div class="contenedor">
-        <div id="marca">
-            <img src="img/img_san-yo.png" alt="" srcset="">
-            <img src="img/logo-san-yo.png" alt="" srcset="">
+        <div id="titulos">
+                <div id="mensaje"> Puede fallar! Pero te mando ondas de amor y paz!
+                </div>
+                <div id="marca">
+                    <img src="img/img_san-yo.png" alt="" srcset="">
+                    <img src="img/logo-san-yo.png" alt="" srcset="">
+                </div>
         </div>
         <div class="salida">
             <div id="resultado"></div>
         </div>
-        <div class="teclas">
-            <div class="fila">
-                <button class="btn btn-outline-dark">1</button>
-                <button class="btn btn-outline-dark">2</button>
-                <button class="btn btn-outline-dark">3</button>
-            </div>
-            <div class="fila">
-                <button class="btn btn-outline-dark">4</button>
-                <button class="btn btn-outline-dark">5</button>
-                <button class="btn btn-outline-dark">6</button>
-            </div>
-            <div class="fila">
-                <button class="btn btn-outline-dark">7</button>
-                <button class="btn btn-outline-dark">8</button>
-                <button class="btn btn-outline-dark">9</button>
-            </div>
-            <div class="fila">
+        <div class="todas-teclas">
+                <div class="teclas" id="numeros">
+                            <div class="fila">
+                                <button class="btn btn-outline-dark">1</button>
+                                <button class="btn btn-outline-dark">2</button>
+                                <button class="btn btn-outline-dark">3</button>
+                            </div>
+                            <div class="fila">
+                                <button class="btn btn-outline-dark">4</button>
+                                <button class="btn btn-outline-dark">5</button>
+                                <button class="btn btn-outline-dark">6</button>
+                            </div>
+                            <div class="fila">
+                                <button class="btn btn-outline-dark">7</button>
+                                <button class="btn btn-outline-dark">8</button>
+                                <button class="btn btn-outline-dark">9</button>
+                            </div>
+                            <div class="fila">
+                                <button class="btn btn-outline-dark">,</button>
+                                <button class="btn btn-outline-dark">0</button>
+                                <button class="btn btn-outline-success">=</button>
+                            </div>
+                </div>
+                <div class="teclas" id="operaciones-basicas">
+                            <div class="fila">
+                                <button class="btn btn-outline-dark">+</button>
+                                <button class="btn btn-outline-dark">-</button>
+                                <button class="btn btn-outline-dark">*</button>
+                            </div>
+                            <div class="fila">
+                                <button class="btn btn-outline-dark">/</button>
+                                <button class="btn btn-outline-dark">%</button>
+                                <button class="btn btn-outline-dark">f!</button>
+                            </div>
+                            <div class="fila">
+                                <button class="btn btn-outline-dark">&radic;</button>
+                                <button class="btn btn-outline-dark"><sup>3</sup>&radic;</button>
+                                <button class="btn btn-outline-dark"><sup>n</sup>&radic;</button>
+                            </div>
+                            <div class="fila">
+                                <button class="btn btn-outline-dark">X<sup>2</sup></button>
+                                <button class="btn btn-outline-dark">X<sup>3</sup></button>
+                                <button class="btn btn-outline-dark">X<sup>n</sup></button>
+                            </div>
 
-            </div>
+                </div>
+                <div class="teclas" id="operaciones-complejas">
+                            <div class="fila">
+                                <button class="btn btn-outline-dark">sen</button>
+                                <button class="btn btn-outline-dark">cos</button>
+                                <button class="btn btn-outline-dark">tag</button>
+                            </div>
+                            <div class="fila">
+                                <button class="btn btn-outline-dark">log</button>
+                                <button class="btn btn-outline-dark">Ln</button>
+                                <button class="btn btn-outline-dark">e</button>
+                            </div>
+                            <div class="fila">
+                                <button class="btn btn-outline-dark">Pi</button>
+                                <button class="btn btn-outline-dark">(</button>
+                                <button class="btn btn-outline-dark">)</button>
+                            </div>
+
+                            <div class="fila">
+                                <button class="btn btn-outline-info" 
+                                        title="Suma al contenido de la memoria lo presentado en el visor">M+</button>
+                                <button class="btn btn-outline-info"
+                                        title="Resta al contenido de la memoria lo presentado en el visor">M-</button>
+                                <button class="btn btn-outline-info"
+                                        title="(Memory Recall)Trae al visor el contenido de la memoria">MR</button>
+                            </div>
+                            <div class="fila">
+                                <button class="btn btn-outline-info"
+                                        title="(Memory Clear)Hace el contenido de la memoria igual a cero">MC</button>
+                            </div>
+
+                </div>
+
         </div>
-    </div>
+        </div>
 </body>
 </html>
