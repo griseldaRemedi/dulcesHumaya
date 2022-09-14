@@ -11,7 +11,6 @@
     border-color: rgb(48, 66, 66);
     
     box-shadow: 5px 15px 15px grey;
-   
 }
 button{
     min-width: 50px;
@@ -20,11 +19,29 @@ button{
     margin: 10px;
     display: inline-block;
 }
-.todas-teclas{
+.sector-teclas{
     display: flex;
 }
 #titulos{
+    background-image: url('../img/formulas.jpg');
+    background-repeat: no-repeat;
+    background-position: cover;
     display: flex;
+    margin: 20px;
+    width: 85%;
+}
+#mensaje{
+    background-color: white;
+    max-height: 150px;
+    margin: 50px;
+    padding: 15px;
+    border-radius: 25px;
+        
+    font-family: Arial Black;
+    font-style: italic;
+    font-size: larger;
+    font-weight: bold;
+    color: #D30240;
 }
 #marca{
     text-align: center;
@@ -33,27 +50,18 @@ button{
     justify-content: center;
     align-items: center; */
 }
-#mensaje{
-    max-width: 40%;
-    text-align: center;
-    margin: 20px
-}
 div img{
     text-align: center;
 }
 #resultado{
     background-color: rgb(217, 255, 0);
     border-radius: 10px;
-    margin: 10px 20px;
+    margin: 5px 15px;
     min-height: 50px;
     max-width: 90%;
 }
 
-button:hover{
-    background-color: aqua;
-
-}
 img{
-    display: block;
+   // display: block;
     max-width: 100px;
 }
