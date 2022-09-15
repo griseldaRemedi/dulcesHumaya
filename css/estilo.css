@@ -45,10 +45,6 @@ button{
 }
 #marca{
     text-align: center;
-    
- /*    display:flexbox;
-    justify-content: center;
-    align-items: center; */
 }
 div img{
     text-align: center;
@@ -62,6 +58,5 @@ div img{
 }
 
 img{
-   // display: block;
     max-width: 100px;
 }
