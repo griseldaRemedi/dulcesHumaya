@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/estilo.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <script src="js/script.js"></script>
     <title>Calculadora SAN-YO</title>
 </head>
 <body>
@@ -20,28 +19,30 @@
                 </div>
         </div>
         <div class="salida">
-            <div id="resultado"></div>
+            <div id="resultado">
+                <div id="textoResultado"></div>
+            </div>
         </div>
         <div class="sector-teclas">
                 <div class="teclas" id="numeros">
                             <div class="fila">
-                                <button class="btn btn-outline-dark">1</button>
-                                <button class="btn btn-outline-dark">2</button>
-                                <button class="btn btn-outline-dark">3</button>
+                                <button class="btn btn-outline-dark num">1</button>
+                                <button class="btn btn-outline-dark num">2</button>
+                                <button class="btn btn-outline-dark num">3</button>
                             </div>
                             <div class="fila">
-                                <button class="btn btn-outline-dark">4</button>
-                                <button class="btn btn-outline-dark">5</button>
-                                <button class="btn btn-outline-dark">6</button>
+                                <button class="btn btn-outline-dark num">4</button>
+                                <button class="btn btn-outline-dark num">5</button>
+                                <button class="btn btn-outline-dark num">6</button>
                             </div>
                             <div class="fila">
-                                <button class="btn btn-outline-dark">7</button>
-                                <button class="btn btn-outline-dark">8</button>
-                                <button class="btn btn-outline-dark">9</button>
+                                <button class="btn btn-outline-dark num">7</button>
+                                <button class="btn btn-outline-dark num">8</button>
+                                <button class="btn btn-outline-dark num">9</button>
                             </div>
                             <div class="fila">
                                 <button class="btn btn-outline-dark">,</button>
-                                <button class="btn btn-outline-dark">0</button>
+                                <button class="btn btn-outline-dark num">0</button>
                                 <button class="btn btn-outline-success">=</button>
                             </div>
                 </div>
@@ -99,12 +100,13 @@
                                 <button class="btn btn-outline-warning"
                                         title="(Clear) Borra el contenido del visor">C</button>
                                 <button class="btn btn-outline-warning"
-                                        title="(Memory Clear)Hace el contenido de la memoria igual a cero"><-</button>
+                                        title="(Retroceso)Borra el último elemento introducido en el contenido del visor"><-</button>
                             </div>
 
                 </div>
 
         </div>
         </div>
-</body>
+         <script src="js/script.js"></script>
+    </body>
 </html>

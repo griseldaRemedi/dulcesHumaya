@@ -56,7 +56,9 @@ div img{
     min-height: 50px;
     max-width: 90%;
 }
-
+#textoResultado{
+    margin: 10px;
+}
 img{
     max-width: 100px;
 }
