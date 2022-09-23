@@ -1,5 +1,8 @@
-// muestra en el visor los botones pulsados y guarda el valor en un array
+// VERSION ACTUAL
+// muestra en el visor los botones pulsados, los guarda el valor en un array, hece la sumatoria del array resultante.
 // no se consideran las funciones de memoria
+// solo maneja sumas y restas sin paréntesis
+
 const datosIngresados = [];
 const operacionesBtn = ['+', '-', '*', '/', '%', 'f!', 
 '&radic;', '<sup>3</sup>&radic;', '<sup>n</sup>&radic;',
@@ -44,7 +47,7 @@ let botones = document.querySelectorAll('button').forEach(
                                         console.log(datosIngresados);
                                         break;
 
-                                    default: //agrego los datos que se ingresan como caracteres independientes
+                                    default: //agrego datos como caracteres independientes
                                         resultado.textContent = resultado.textContent + element.textContent;
                                         datosIngresados.push(element.textContent);
                                         console.log(datosIngresados);
@@ -79,6 +82,7 @@ let botones = document.querySelectorAll('button').forEach(
                                             } else {
                                                     // COMENZAR A OPERAR SIN PARÉNTESIS
                                                     // si NO HAY paréntesis sigo la secuencia de las operaciones
+                                                    operar(operacionResultante);
                                                     console.log(operacionResultante);
                                             }
                                 } else {
@@ -89,3 +93,31 @@ let botones = document.querySelectorAll('button').forEach(
                     ) 
                 )
 
+function operar(operacionCompleta){
+
+    const opCompletaDef = [];
+    /* armar nros negativos */
+    operacionCompleta.forEach(
+        function (item, index, array) {
+            if (!isNaN(item)){
+                if (array[index-1] === '+' || array[index-1] === '-' ){
+                    opCompletaDef.push(Number(array[index-1] + array[index]));
+                } else {
+                    opCompletaDef.push(item);
+                }
+            } else {
+                if ( (item !== '+') && (item !== '-') ){
+                    opCompletaDef.push(item);
+                }
+            }
+    });
+        console.log(`Array de operacion: ${opCompletaDef}`);
+
+    let acumulador = 0;
+    opCompletaDef.forEach(element => {
+        if (typeof element === 'number' ) acumulador = acumulador + element;
+    });
+
+    resultado.textContent = `El resultado es: ${acumulador}`; 
+
+}
