@@ -82,22 +82,17 @@ let botones = document.querySelectorAll('button').forEach(
                                     operacionResultante[1] = element.textContent;
                                     operacionResultante.pop();
                                     idxOpRes=2;
-                                    console.log("Con pop  " + operacionResultante + ' idx ' + idxOpRes);
                                     resultado.textContent = operacionResultante[0] + operacionResultante[1];
-
                                     } else {
                                         operacionResultante[idxOpRes++] = element.textContent;
-                                        console.log("Sigo ingresando " + operacionResultante + ' idx ' + idxOpRes);
                                         resultado.textContent = resultado.textContent + element.textContent;
                                     }
                                // fin opero
                                
-                               // agrego al array y muestro en visor el signo de operación que se ingresó en último término
                                calculo.textContent = calculo.textContent + element.textContent;
-                               // fin agrego al array y muestro en visor
 
                                if (element.textContent === "=") {
-                                    //console.log('Operacion resultante: ' + operacionResultante);
+                                    resultado.textContent = resultado.textContent + element.textContent;
                                 } else {
                                     datosIngresados.length = 0;
                                 }
@@ -107,8 +102,6 @@ let botones = document.querySelectorAll('button').forEach(
                 )
 
 function operar(operacionCompleta){
-
-    const opCompletaDef = [];
     let resultado = 0;
     operacionCompleta.forEach(
         function (item, index, array) {
@@ -131,15 +124,14 @@ function operar(operacionCompleta){
                         console.log(`Resultado ${resultado} y el numero es ${array}`);
                         break;
                     default:
-                        // error en el ingreso de datos
                         console.log(`Defaul Resultado ${resultado} y el numero es ${array}`);
                         break;
                 }
             } else {
-                //acumulador = acumulador + element;
+                // falta implementar
             }
     });
     
-    return opCompletaDef[0] = resultado;
+    return resultado;
 
 }
