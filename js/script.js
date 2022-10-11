@@ -1,5 +1,6 @@
 // VERSION ACTUAL
-// muestra en el visor los botones pulsados, los guarda el valor en un array, hece la sumatoria del array resultante.
+// muestra en el visor los botones pulsados, guarda el valor en un array, 
+// hace la sumatoria del array resultante.
 // no se consideran las funciones de memoria
 // solo maneja sumas y restas sin paréntesis
 
@@ -8,15 +9,17 @@ const operacionesBtn = ['+', '-', '*', '/', '%', 'f!',
 '&radic;', '<sup>3</sup>&radic;', '<sup>n</sup>&radic;',
  '<sup>2</sup>', 'X<sup>3</sup>', 'X<sup>n</sup>', 
  'sen', 'cos', 'tag', 'log', 'Ln', 'e', 'tag',  '='];
-const memoria = []; //para las funciones M+, M-, MR
+const operacionesBasicas = ['+', '-', '*', '/', '%'];
+
+const memoria = []; //para la funcion MR
 const operacionResultante = [];
 let idxOpRes = 0;
-let operacion = "";
+let resultado = document.getElementById("textoResultado");
+let calculo = document.getElementById("textoCalculo");
 
 let botones = document.querySelectorAll('button').forEach( 
         element => element.addEventListener('click',  
             function() { 
-                            let resultado = document.getElementById("textoResultado");
 
                             if( !(operacionesBtn.includes(element.textContent))){  
                                 switch (element.textContent) {
@@ -26,20 +29,22 @@ let botones = document.querySelectorAll('button').forEach(
                                         console.log(datosIngresados);
                                         break;
 
-                                    case "C": // borra el contenido del visor
-                                        resultado.textContent = "";
+                                    case "AC": // borra el contenido del visor
+                                        resultado.replaceChildren();
+                                        calculo.replaceChildren();
+                                        idxOpRes = 0;
                                         datosIngresados.length = 0;
                                         operacionResultante.length = 0;
                                         console.log(datosIngresados);
                                         break;
-                                    case "(" :
+                                    case "(" : // sin implementar
                                         resultado.textContent = resultado.textContent + element.textContent;
                                         operacionResultante[idxOpRes++] = element.textContent;
                                         datosIngresados.length = 0;
                                         console.log(datosIngresados);
                                         break;
 
-                                    case ")":
+                                    case ")": // sin implementar
                                         resultado.textContent = resultado.textContent + element.textContent;
                                         operacionResultante[idxOpRes++] = parseInt(datosIngresados.join(''));
                                         operacionResultante[idxOpRes++] = element.textContent;
@@ -47,44 +52,52 @@ let botones = document.querySelectorAll('button').forEach(
                                         console.log(datosIngresados);
                                         break;
 
-                                    default: //agrego datos como caracteres independientes
+                                    default: // agrego datos como caracteres independientes
                                         resultado.textContent = resultado.textContent + element.textContent;
+                                        calculo.textContent = calculo.textContent + element.textContent;
                                         datosIngresados.push(element.textContent);
                                         console.log(datosIngresados);
                                         break;
                                 }
 
                             } else {
-                                // CONTROLAR! parse int o parse float s/tengan coma o no 
-                                console.log('Datos ingresados antes del parseInt' + datosIngresados);
+                                // Una vez ingresado un signo de operación, CONVIERTO en número los caracteres ingresados
+                                // CONTROLAR EL CASO DE NÚMEROS NEGATIVOS!!
                                if (datosIngresados.length !== 0){
-                                    operacionResultante[idxOpRes++] = parseInt(datosIngresados.join(''));
+                                    if (datosIngresados.includes('.')){
+                                        operacionResultante[idxOpRes++] = parseFloat(datosIngresados.join(''));
+                                        } else {
+                                            operacionResultante[idxOpRes++] = parseInt(datosIngresados.join(''));
+                                    }
                                     datosIngresados.length = 0;
                                }
-                               operacionResultante[idxOpRes++] = element.textContent;
-                               resultado.textContent = resultado.textContent + element.textContent;
+                               // fin convertir en número 
 
-                                if (element.textContent === "=") {
-                                    console.log('Operacion resultante: ' + operacionResultante);
 
-                                    if(operacionResultante.includes('(') || operacionResultante.includes(')')){
-                                            if ( (operacionResultante.filter(element => (element === '(') ).length) === (operacionResultante.filter(element => (element === ')') ).length) ) { // cantidad de paréntesis que abren y cierran es igual
-                                                    // COMENZAR A OPERAR CON PARENTESIS
-                                                    // si hay paréntesis modifico el array para que quede en la secuencia 
-                                                    console.log(operacionResultante);
-                                                    } else { // cantidad de parentesis inconsistente
-                                                        alert('ERROR DE PARENTESIS: Verifica los paréntesis, deben abrir y cerrar. Vuelve a ingresar los datos. ' + operacionResultante); 
-                                                        //PRÓXIMA VERSION: 
-                                                        //borro el igual de datos ingresados y 
-                                                        //manipulo operaciones resultantes para poder usar btn retroceder 
-                                                        datosIngresados.length = 0;
-                                                        operacionResultante.length = 0;                                                    }
-                                            } else {
-                                                    // COMENZAR A OPERAR SIN PARÉNTESIS
-                                                    // si NO HAY paréntesis sigo la secuencia de las operaciones
-                                                    operar(operacionResultante);
-                                                    console.log(operacionResultante);
-                                            }
+                               // Opero
+                               if (operacionResultante.length > 1){
+                                    console.log("Antes de operar  " + operacionResultante + ' idx ' + idxOpRes);
+                                    operacionResultante[0] = operar(operacionResultante);
+                                    calculo.textContent = calculo.textContent + ' = ' + operacionResultante[0]  + ' ';
+                                    operacionResultante[1] = element.textContent;
+                                    operacionResultante.pop();
+                                    idxOpRes=2;
+                                    console.log("Con pop  " + operacionResultante + ' idx ' + idxOpRes);
+                                    resultado.textContent = operacionResultante[0] + operacionResultante[1];
+
+                                    } else {
+                                        operacionResultante[idxOpRes++] = element.textContent;
+                                        console.log("Sigo ingresando " + operacionResultante + ' idx ' + idxOpRes);
+                                        resultado.textContent = resultado.textContent + element.textContent;
+                                    }
+                               // fin opero
+                               
+                               // agrego al array y muestro en visor el signo de operación que se ingresó en último término
+                               calculo.textContent = calculo.textContent + element.textContent;
+                               // fin agrego al array y muestro en visor
+
+                               if (element.textContent === "=") {
+                                    //console.log('Operacion resultante: ' + operacionResultante);
                                 } else {
                                     datosIngresados.length = 0;
                                 }
@@ -96,28 +109,37 @@ let botones = document.querySelectorAll('button').forEach(
 function operar(operacionCompleta){
 
     const opCompletaDef = [];
-    /* armar nros negativos */
+    let resultado = 0;
     operacionCompleta.forEach(
         function (item, index, array) {
-            if (!isNaN(item)){
-                if (array[index-1] === '+' || array[index-1] === '-' ){
-                    opCompletaDef.push(Number(array[index-1] + array[index]));
-                } else {
-                    opCompletaDef.push(item);
+            if (isNaN(item)){
+                switch (item) {
+                    case '+':
+                        resultado = array[index-1] + array[index+1];
+                        console.log(`Resultado ${resultado} y el numero es ${array}`);
+                        break;
+                    case '-':
+                        resultado = array[index-1] - array[index+1];
+                        console.log(`Resultado ${resultado} y el numero es ${array}`);
+                        break;
+                    case '*':
+                        resultado = array[index-1] * array[index+1];
+                        console.log(`Resultado ${resultado} y el numero es ${array}`);
+                        break;
+                    case '/':
+                        resultado = array[index-1] / array[index+1];
+                        console.log(`Resultado ${resultado} y el numero es ${array}`);
+                        break;
+                    default:
+                        // error en el ingreso de datos
+                        console.log(`Defaul Resultado ${resultado} y el numero es ${array}`);
+                        break;
                 }
             } else {
-                if ( (item !== '+') && (item !== '-') ){
-                    opCompletaDef.push(item);
-                }
+                //acumulador = acumulador + element;
             }
     });
-        console.log(`Array de operacion: ${opCompletaDef}`);
-
-    let acumulador = 0;
-    opCompletaDef.forEach(element => {
-        if (typeof element === 'number' ) acumulador = acumulador + element;
-    });
-
-    resultado.textContent = `El resultado es: ${acumulador}`; 
+    
+    return opCompletaDef[0] = resultado;
 
 }
