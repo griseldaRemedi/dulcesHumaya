@@ -1,8 +1,14 @@
 // VERSION ACTUAL
-// muestra en el visor los botones pulsados, guarda el valor en un array, 
-// hace la sumatoria del array resultante.
+// muestra en el visor los botones pulsados y los subtotales obtenidos
+// en otro visor va mostrando todas las operaciones realizadas
 // no se consideran las funciones de memoria
-// solo maneja sumas y restas sin paréntesis
+// opera sumas restas mul y div
+// siguientes iteraciones:
+//      -tecla retroceder: solo funciona bien en la primera vuelta -> corregir
+//      -tecla igual: controlar su funcionamiento
+//      -dar msj de error: cuando se pulse dos veces las teclas de singos -> agregar control
+//      -agregar operaciones
+
 
 const datosIngresados = [];
 const operacionesBtn = ['+', '-', '*', '/', '%', 'f!', 
