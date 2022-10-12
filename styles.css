@@ -1,8 +1,7 @@
 @media screen and (max-width:600px) {
    .principal{
-            min-height: 400px;
+      min-height: 350px;
       }
-   
 }
 
 @media screen and  (min-width: 601px) and (max-width:990px) {
@@ -44,7 +43,6 @@ body{
    margin-top: 3rem;
 }
 
-
 .principal{
    background-image: url('IMAGENES/Central/imagenCentral.png');
    background-size: cover;
@@ -54,4 +52,24 @@ body{
    width: 250px;
    padding: 25px;
    color:#212529;
+}
+
+.titulo{
+   background-color: black;
+   color: #fef8f2 !important;
+   padding: 10px;
+   text-align: center;
+   margin: 0px;
+}
+
+.colorTituloCard{
+   color:#D5AC8C !important;;
+}
+
+.bordeBotonCardProductos {
+   color: #D5AC8C !important;
+   border-color: #D5AC8C !important;
+}
+.card{
+   border: 0px !important;
 }
