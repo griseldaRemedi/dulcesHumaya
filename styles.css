@@ -1,0 +1,57 @@
+@media screen and (max-width:600px) {
+   .principal{
+            min-height: 400px;
+      }
+   
+}
+
+@media screen and  (min-width: 601px) and (max-width:990px) {
+   .principal{
+      min-height: 500px;
+   }
+
+}
+
+@media screen and (min-width:991px) {
+   .principal{
+      min-height: 600px;
+      background-size: cover;
+      background-position:right;
+      
+   }
+   .presentacionTexto{
+      width: 500px !important;
+      padding: 25px;
+      color:#fef8f2 !important;
+      margin-left: 650px;
+      font-size: 1.5rem; 
+      
+   }
+   .tituloPresentacion{
+      color: #fef8f2 !important;
+      margin-top: 5rem;
+      font-size: 2rem; 
+   }
+}
+
+
+body{
+   font-size: 16px;
+}
+
+.tituloPresentacion{
+   color: #fef8f2 !important;
+   margin-top: 3rem;
+}
+
+
+.principal{
+   background-image: url('IMAGENES/Central/imagenCentral.png');
+   background-size: cover;
+}
+
+.presentacionTexto{
+   width: 250px;
+   padding: 25px;
+   color:#212529;
+}
