@@ -5,13 +5,18 @@
    .textoAlfajores{
       width: 65%;
    }   
+   .contactanos{
+      visibility: hidden;
+   }
 }
 
 @media screen and  (min-width: 601px) and (max-width:990px) {
    .principal{
       min-height: 500px;
    }
-
+   .contactanos{
+      visibility: hidden;
+   }
 }
 
 @media screen and (min-width:991px) {
@@ -34,6 +39,9 @@
       color: #fef8f2 !important;
       margin-top: 5rem;
       font-size: 2rem; 
+   }
+   .contactanos{
+      visibility:visible;
    }
 }
 
@@ -59,7 +67,7 @@ body{
 }
 
 .titulo{
-   background-color: black;
+   background-color: #2f2d2d;
    color: #fef8f2 !important;
    padding: 10px;
    text-align: center;
@@ -67,7 +75,7 @@ body{
 }
 
 .colorTituloCard{
-   color:#D5AC8C !important;;
+   color:#D5AC8C !important;
 }
 
 .bordeBotonCardProductos {
