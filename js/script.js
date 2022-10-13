@@ -95,11 +95,13 @@ let botones = document.querySelectorAll('button').forEach(
                                     }
                                // fin opero
                                
-                               calculo.textContent = calculo.textContent + element.textContent;
+                               
 
                                if (element.textContent === "=") {
-                                    resultado.textContent = resultado.textContent + element.textContent;
+                                    resultado.textContent = operacionResultante[0] ;
+                                    //calculo.textContent = calculo.textContent + operacionResultante[0];
                                 } else {
+                                    calculo.textContent = calculo.textContent + element.textContent;
                                     datosIngresados.length = 0;
                                 }
                             }
